@@ -13,7 +13,14 @@ http.get(url, (response) => {
         console.log(body)
     })
     response.on('end', () => {
-        var jsonData = JSON.parse(body)
-        console.log(jsonData)
+        try {
+            var jsonData = JSON.parse(body)
+            console.log(jsonData)            //ex: jsonData.films[2]) 
+        } catch (error) {
+            console.log(`Formatting error: ${error.message}`)
+        }
+        
     })
+}).on('error', (e) => {
+    console.log(`Got error: ${e.message}`)
 })
