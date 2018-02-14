@@ -1,7 +1,7 @@
 var http = require('http')
 var fs = require('fs')
 
-var fileToServe = '.\luke.json'  // .\ is for node.js - don't need if in same folder
+var fileToServe = 'luke.json'  // .\ is for node.js - don't need if in same folder
 
 var server = http.createServer((req, res)=> {
     var srcStream = fs.createReadStream(fileToServe)
