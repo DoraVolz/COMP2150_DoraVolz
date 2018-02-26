@@ -1,0 +1,42 @@
+{
+    "instructors" : {
+        "instructor" : [
+            {
+                "id" : "JV1000",
+                "name" : "Jack Volz",
+                "city" : "Minnesota Lake",
+                "state" : "MN",
+                "phone" : "507-123-8777",
+                "certification" : [
+                    "FFI", 
+                    "FFII", 
+                    "EMS", 
+                    "HAZMAT"
+                ]
+            },
+            {
+                "id" : "MS1001",
+                "name" : "Matt Santo",
+                "city" : "Janesville",
+                "state" : "MN",
+                "phone" : "380-123-9898",
+                "certification" : [
+                    "FFI", 
+                    "FFII", 
+                    "HAZMAT"
+                ]
+            },
+            {
+                "id" : "SS1002",
+                "name" : "Sam Smith",
+                "city" : "Sioux Falls",
+                "state" : "SD",
+                "phone" : "623-656-1243",
+                "certification" : [
+                    "FFI", 
+                    "FFII"
+                ]
+            }
+        ]
+    }
+}
