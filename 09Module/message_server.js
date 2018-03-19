@@ -64,7 +64,33 @@ const server = http.createServer((req,res)=> {
                 
                 break;
             case 'DELETE':
-                
+            fs.readFile('./data', 'utf-8',(err, data)=>{
+                let dataArr = data.split("\n");
+                // Remove the element of array based on the number from the request's url
+                // Take the incoming url and parse it into an url object which can extract just portion of the url we need
+                let incoming_url = url.parse(req.url, true);
+                // extract the url portion
+                let u = incoming_url.pathname;
+                // Remove "/" from the path name
+                u = u.slice(1,);
+                let elToReplace = parseInt(u);
+                if(elToReplace < dataArr.length) {
+                    dataArr.splice(elToReplace,1);
+                    // Delete current's file data by overwriting it.
+                    fs.writeFile('./data', '', (err)=>{
+                        console.error(err);
+                    });
+                    dataArr.forEach(element => {
+                        fs.appendFile('./data', element + "\n", (err) => {
+                            console.error(err);
+                        });
+                    });
+                    res.writeHead(200, {'Content-Type': 'text/plain'});
+                    res.body = "Resource deleted";
+                    res.write(res.body);
+                    res.end();
+                }
+            });
                 break;
         
             default:
