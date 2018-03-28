@@ -8,11 +8,18 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+// set up mongoose connection
+var mongoose = require('mongoose');
+var mongoDB = 'mongodb://Squirrel:ohnuts@ds127129.mlab.com:27129/local_library';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'MongoDB connectiton error:'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
-
+app.set('view engine', 'pug'); // can create templates with pug
+// loading middle wares
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
