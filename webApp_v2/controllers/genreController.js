@@ -37,8 +37,8 @@ exports.genre_detail = function(req, res, next) {
         }
         // Successful, so render
         res.render('genre_detail', { title: 'Genre Detail', genre: results.genre, genre_books: results.genre_books } );
-    });
-
+    })
+};
 // Display genre create form (GET)
 exports.genre_create_get = function(req, res) {
     res.send('NOT IMPLEMENTED: genre create GET.');
@@ -68,3 +68,4 @@ exports.genre_update_get = function(req, res) {
 exports.genre_update_post = function(req, res) {
     res.send('NOT IMPLEMENTED: genre update POST.');
 };
+
